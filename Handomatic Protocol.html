@@ -1,0 +1,413 @@
+<!DOCTYPE html><html>
+
+<head>
+<meta charset="utf-8">
+<title>Handomatic Protocol</title>
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+</head>
+<body>
+<p>Handomatic Protocol</p>
+
+<p>-By Akhil Surapaneni</p>
+
+<p><strong>note:</strong> The Handomatic software only generates Raptor Hand STL files. For detailed instructions on printing and assembling the Raptor Reloaded hand, please see the protocol titled “Raptor Reloaded Protocol”</p>
+
+<p><strong>Generating STL files</strong></p>
+
+<p>1) Go to http://enablingthefuture.org/handomatic/</p>
+
+<p>2) Measure with a ruler across the two widest points on the affected hand and enter that number (in mm) into the machine.</p>
+
+<p>3) Select the default hand settings:</p>
+
+<p>palm- raptor hand with supports</p>
+
+<p>fingers-raptor hand</p>
+
+<p>gauntlet style: raptor hand with supports</p>
+
+<p>padding-thickness:5</p>
+
+<p>4) Enter your email into the box on the right and click send. Within a few minutes, you will receive an email with the .stl files in a zip file.</p>
+
+<p><b>Printing the files</b></p>
+
+<p>1) Open a software that can create slices of the design and generate G-Code to send to the 3D printer. If you are using an Ultimaker 3D printer, use the Cura software. </p>
+
+<p>2)Load your .stl files into the software and arrange the parts around the print space for maximum efficiency. Scale all of the parts appropriately. 
+Remember to load 5 copies of the proximal phalange and 5 distal phalanges.</p>
+
+<p>3)Set the print settings to 35% infill density and set the layer height to 0.2mm if you want to save time. </p>
+
+<p><img src="images/curashot.png" alt = "Cura setup" style = "width:400";/></p>
+
+<p>4) Remove the support structures. If the structures don’t come off by snapping them off, file and dremel the hand to smooth out the insides. </p>
+
+<p><b>Assembly: watch <a href> https://www.youtube.com/watch?v=5HVwC3RnWXk or follow the instructions below.</a> </b></p>
+
+<p>1) In addition to the parts you just printed, you will also need a Phillips head screwdriver, 5 longer screws for the tensioner (at 130% scale size 4” by 3.25”), 3 short and flat screws, flexible elastic cord, non-flexible cord, foam padding, and velcro</p>
+
+<p><img src="images/setup.png" alt = "setup picture";/></p>
+
+<p>2) Put the proximal phalange and distal phalanges together and connect them with the snap pins. The pin goes through the rectangular hole </p>
+
+<p><img src = "images/proximalphalange.png" alt = "proximal phalange" style = "width:300px";/></p>
+
+<p>3) Attach two fingers at a time using the long snap pins. The pins themselves are angled, so align that with the angle of the palm. Use the medium sized snap pin to put attach the thumb.</p>
+
+<p><img src = "images/knucklepins.png" alt = "knuckle pins" style = "width:300px";/></p>
+
+<p>4) Attach the gauntlet to the hand. The pins go from the inside of the hand to the outside</p>
+
+<p>5) Slide in tensioner block on the top of the gauntlet and secure it by sliding the dovetail pin behind it. You should solder the crease where the dovetail pin attaches in the inside of the gauntlet</p>
+
+<p><img src = "images/tensionerblock.png" alt = "tensioner block" style = "width:300px";/></p>
+
+<p>6) Take some of your flexible cable. Turn the hand so that the fingers are facing you. In the front of each phalange, you will two holes, one that looks like a frown and another that looks like a smile. Feed cable through the frown hole from the front and out the smile side. Triple knot. </p>
+
+<p><img src = "images/tripleknot.png" alt = "triple knot" style = "width:300px";/></p>
+
+<p>7) Take the other side of the string, feed it through the same front channel and pull it tight so that the knot goes inside the bar. </p>
+
+<p><img src = "images/secondknot.png" alt = "second knot" style = "width:200px";/></p>
+
+<p>8) Feed the string through the hole in the front part of the phalange and out of the holes in the knuckles on the top of the hand. Tie the string for the index and middle finger into the left ledge on the palm and tie the string for the ring and pinky finger onto the right ledge on the palm. Do the above steps 6&amp;7 for the thumb and tie that to the ledge closest to the thumb.</p>
+
+<p><img src = "images/flexibleknot3.png" alt = "flexible knot 3" style = "width:300px";/></p>
+
+<p>9) Take the fishing line or other non-flexible string and turn the hand upside down. Tie a knot into the ledge under the index finger under where the distal interphalangeal joint is.</p>
+
+<p><img src = "images/fishingline1.png" alt = "fishing line 1" style = "width:300px";/></p>
+
+<p>10) Run that string into the underside of the proximal phalange and into the slot on the underside of the palm and proximal phalange connection. The string should appear at a hole behind the hole where the flexible thread appeared on the palm. Push the the string through the holes on the top of the palm. Do this for all the fingers</p>
+
+<p><img src = "images/fishingline2.png" alt = "fishing line 2" style = "width:300px";/></p>
+
+<p>11) Secure the tensioner pins into the tensioner block loosely with screws, but make sure that the pins are as far forward as possible. </p>
+
+<p>12) Tie the string onto the holes on the front of the tensioner pins so that the string is taut when the pin is as far forward. Do this for all of the strings.</p>
+
+<p><img src = "images/tensionerpins.png" alt = "tensioner pins" style = "width:300px";/></p>
+
+<p>13) Hold the hand so that it is angled 15 degrees upward and adjust the tensioner pins by the screws so that the string is taut again. Make sure that the thumb is a little less taut than the fingers so that the index finger closes with the thumb and comes together like the grip when holding a pencil.</p>
+
+<p><img src = "images/tensionscrew.png" alt = "tensioner screw" style = "width:300px";/></p>
+
+<p>14) Add foam padding on the front of the palm and onto the underside of the gauntlet.</p>
+
+<p><img src = "images/foampadding1.png" alt = "foam padding 1" style = "width:300px";/></p>
+
+<p>15)You will need two pieces of velcro. For the palm, you want one about 8-10 inches long and the other piece is about 6 inches. Put holes in the velcro that align with the three holes in the palm. Put three flat screws through the velcro so that the heads of the screws go through the soft side of the velcro. Screw them through the holes. Put another piece of Velcro perpendicular to the first velcro piece to cover up the screws. Close both pieces so that the second velcro piece, running vertically down the hand, closes second. </p>
+
+<p><img src = "images/velcro1.png" alt = "velcro 1" style = "width:300px";/></p>
+
+<p>16) Cut another piece of velcro, about 10-12 inches, and feed it through the bottom slots (the ones that are on the bottom if you are looking at the inside of the hand). Bring the velcro around and unit the pieces by feeding the two ends through the top slots.</p>
+
+<p><img src = "images/velcro2.png" alt = "velcro 2" style = "width:300px";/></p>
+
+<p><b>References</b></p>
+
+<p>3D Universe. “Assembling the Raptor Hand by e-NABLE.” Youtube. Youtube, 1 October 2014. Web. 20 January 2015.</p>
+
+
+</body>
+
+</html>
